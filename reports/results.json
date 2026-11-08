@@ -1,0 +1,323 @@
+{
+  "n_areas": 150,
+  "n_features": 23,
+  "features": [
+    "imd_score",
+    "child_absolute_low_income_pct",
+    "free_school_meals_pct",
+    "children_in_care_rate",
+    "persistent_absence_secondary_pct",
+    "persistent_absence_primary_pct",
+    "neet_16_17_pct",
+    "youth_justice_first_entrants_rate",
+    "semh_pupils_pct",
+    "sen_pupils_pct",
+    "under18_conception_rate",
+    "domestic_abuse_rate",
+    "homeless_families_rate",
+    "violent_crime_rate",
+    "adult_loneliness_pct",
+    "smi_prevalence_pct",
+    "adult_depression_prevalence_pct",
+    "ethnic_minority_births_pct",
+    "attainment8_score",
+    "school_readiness_pct",
+    "ahah_index",
+    "lac_wellbeing_concern_pct",
+    "housing_affordability_ratio"
+  ],
+  "england_crude_rate_per_100k": 265.91054715260464,
+  "rate_range_per_100k": [
+    65.5264761931461,
+    784.884919098035
+  ],
+  "cv": {
+    "Leave-one-region-out | England average (baseline)": {
+      "d2": 0.0,
+      "mae_per_100k": 107.1364,
+      "spearman": null,
+      "poisson_deviance": 0.0007,
+      "d2_sd": 0.0
+    },
+    "Leave-one-region-out | LightGBM (Poisson)": {
+      "d2": -0.1377,
+      "mae_per_100k": 103.7182,
+      "spearman": 0.085,
+      "poisson_deviance": 0.0006,
+      "d2_sd": 0.5802
+    },
+    "Leave-one-region-out | Poisson GLM (ridge)": {
+      "d2": 0.0899,
+      "mae_per_100k": 98.3873,
+      "spearman": 0.167,
+      "poisson_deviance": 0.0005,
+      "d2_sd": 0.211
+    },
+    "Leave-one-region-out | Random forest": {
+      "d2": -0.1061,
+      "mae_per_100k": 105.0888,
+      "spearman": 0.1094,
+      "poisson_deviance": 0.0006,
+      "d2_sd": 0.5539
+    },
+    "Random 5-fold x5 | England average (baseline)": {
+      "d2": 0.0,
+      "mae_per_100k": 101.5532,
+      "spearman": null,
+      "poisson_deviance": 0.0006,
+      "d2_sd": 0.0
+    },
+    "Random 5-fold x5 | LightGBM (Poisson)": {
+      "d2": 0.3443,
+      "mae_per_100k": 80.3352,
+      "spearman": 0.639,
+      "poisson_deviance": 0.0004,
+      "d2_sd": 0.1187
+    },
+    "Random 5-fold x5 | Poisson GLM (ridge)": {
+      "d2": 0.2855,
+      "mae_per_100k": 86.0814,
+      "spearman": 0.6259,
+      "poisson_deviance": 0.0004,
+      "d2_sd": 0.0641
+    },
+    "Random 5-fold x5 | Random forest": {
+      "d2": 0.366,
+      "mae_per_100k": 79.1349,
+      "spearman": 0.6474,
+      "poisson_deviance": 0.0004,
+      "d2_sd": 0.1276
+    }
+  },
+  "final_lightgbm_params": {
+    "num_leaves": 3,
+    "n_estimators": 200,
+    "min_child_samples": 8
+  },
+  "shap_mean_abs_top10": {
+    "ethnic_minority_births_pct": 0.1263,
+    "ahah_index": 0.1081,
+    "under18_conception_rate": 0.032,
+    "semh_pupils_pct": 0.0317,
+    "adult_depression_prevalence_pct": 0.0269,
+    "persistent_absence_secondary_pct": 0.019,
+    "attainment8_score": 0.018,
+    "children_in_care_rate": 0.0132,
+    "school_readiness_pct": 0.0115,
+    "smi_prevalence_pct": 0.0103
+  },
+  "shap_direction_top10": {
+    "ethnic_minority_births_pct": "higher -> fewer admissions",
+    "ahah_index": "higher -> fewer admissions",
+    "under18_conception_rate": "higher -> fewer admissions",
+    "semh_pupils_pct": "higher -> more admissions",
+    "adult_depression_prevalence_pct": "higher -> more admissions",
+    "persistent_absence_secondary_pct": "higher -> more admissions",
+    "attainment8_score": "higher -> fewer admissions",
+    "children_in_care_rate": "higher -> more admissions",
+    "school_readiness_pct": "higher -> more admissions",
+    "smi_prevalence_pct": "higher -> more admissions"
+  },
+  "glm": {
+    "features": [
+      "adult_depression_prevalence_pct",
+      "adult_loneliness_pct",
+      "ahah_index",
+      "children_in_care_rate",
+      "domestic_abuse_rate",
+      "ethnic_minority_births_pct",
+      "homeless_families_rate",
+      "imd_score",
+      "lac_wellbeing_concern_pct",
+      "neet_16_17_pct",
+      "persistent_absence_secondary_pct",
+      "school_readiness_pct",
+      "semh_pupils_pct",
+      "sen_pupils_pct",
+      "smi_prevalence_pct",
+      "youth_justice_first_entrants_rate"
+    ],
+    "dispersion_scale": 22.636681143007053,
+    "irr_per_sd": {
+      "ahah_index": {
+        "irr_per_sd": 0.7428,
+        "ci_low": 0.6458,
+        "ci_high": 0.8543,
+        "p_value": 0.0
+      },
+      "ethnic_minority_births_pct": {
+        "irr_per_sd": 0.9054,
+        "ci_low": 0.7968,
+        "ci_high": 1.0289,
+        "p_value": 0.1278
+      },
+      "youth_justice_first_entrants_rate": {
+        "irr_per_sd": 0.939,
+        "ci_low": 0.8678,
+        "ci_high": 1.0161,
+        "p_value": 0.1181
+      },
+      "domestic_abuse_rate": {
+        "irr_per_sd": 0.9573,
+        "ci_low": 0.8848,
+        "ci_high": 1.0357,
+        "p_value": 0.277
+      },
+      "imd_score": {
+        "irr_per_sd": 0.9616,
+        "ci_low": 0.8162,
+        "ci_high": 1.1328,
+        "p_value": 0.6391
+      },
+      "neet_16_17_pct": {
+        "irr_per_sd": 0.9697,
+        "ci_low": 0.9092,
+        "ci_high": 1.0342,
+        "p_value": 0.3489
+      },
+      "lac_wellbeing_concern_pct": {
+        "irr_per_sd": 1.0016,
+        "ci_low": 0.9255,
+        "ci_high": 1.0838,
+        "p_value": 0.9693
+      },
+      "sen_pupils_pct": {
+        "irr_per_sd": 1.0218,
+        "ci_low": 0.9307,
+        "ci_high": 1.1218,
+        "p_value": 0.6508
+      },
+      "adult_depression_prevalence_pct": {
+        "irr_per_sd": 1.0227,
+        "ci_low": 0.914,
+        "ci_high": 1.1444,
+        "p_value": 0.6952
+      },
+      "homeless_families_rate": {
+        "irr_per_sd": 1.0296,
+        "ci_low": 0.9338,
+        "ci_high": 1.1351,
+        "p_value": 0.5583
+      },
+      "children_in_care_rate": {
+        "irr_per_sd": 1.0325,
+        "ci_low": 0.9197,
+        "ci_high": 1.1591,
+        "p_value": 0.5879
+      },
+      "school_readiness_pct": {
+        "irr_per_sd": 1.0462,
+        "ci_low": 0.9462,
+        "ci_high": 1.1568,
+        "p_value": 0.3781
+      },
+      "persistent_absence_secondary_pct": {
+        "irr_per_sd": 1.0487,
+        "ci_low": 0.9425,
+        "ci_high": 1.1669,
+        "p_value": 0.3824
+      },
+      "smi_prevalence_pct": {
+        "irr_per_sd": 1.0675,
+        "ci_low": 0.9609,
+        "ci_high": 1.1858,
+        "p_value": 0.2237
+      },
+      "semh_pupils_pct": {
+        "irr_per_sd": 1.0891,
+        "ci_low": 0.9991,
+        "ci_high": 1.1872,
+        "p_value": 0.0525
+      },
+      "adult_loneliness_pct": {
+        "irr_per_sd": 1.1057,
+        "ci_low": 0.9961,
+        "ci_high": 1.2273,
+        "p_value": 0.0592
+      }
+    },
+    "pseudo_r2_deviance": 0.5050698206529582
+  },
+  "deviance_decomposition_in_sample": {
+    "region_only": 0.5319162803308436,
+    "context_only": 0.5050698206529582,
+    "context_plus_region": 0.6328991810878867
+  },
+  "observed_vs_expected": {
+    "phi": 14.60555602579732,
+    "flag_counts": {
+      "As expected": 144,
+      "Higher than expected": 4,
+      "Lower than expected": 2
+    },
+    "higher_than_expected": [
+      {
+        "area_name": "North Tyneside",
+        "region": "North East",
+        "oe_ratio": 2.44,
+        "selfharm_rate": 784.88
+      },
+      {
+        "area_name": "Swindon",
+        "region": "South West",
+        "oe_ratio": 2.39,
+        "selfharm_rate": 681.36
+      },
+      {
+        "area_name": "Northumberland",
+        "region": "North East",
+        "oe_ratio": 2.22,
+        "selfharm_rate": 739.57
+      },
+      {
+        "area_name": "Wiltshire",
+        "region": "South West",
+        "oe_ratio": 1.96,
+        "selfharm_rate": 554.48
+      }
+    ],
+    "lower_than_expected": [
+      {
+        "area_name": "Oxfordshire",
+        "region": "South East",
+        "oe_ratio": 0.5,
+        "selfharm_rate": 209.85
+      },
+      {
+        "area_name": "Essex",
+        "region": "East of England",
+        "oe_ratio": 0.53,
+        "selfharm_rate": 185.24
+      }
+    ]
+  },
+  "residual_audit": {
+    "mean_oe_by_region": {
+      "East Midlands": 0.956,
+      "East of England": 0.909,
+      "London": 0.805,
+      "North East": 1.286,
+      "North West": 1.01,
+      "South East": 1.031,
+      "South West": 1.326,
+      "West Midlands": 0.849,
+      "Yorkshire and the Humber": 0.795
+    },
+    "mean_oe_by_imd_quintile": {
+      "1 least deprived": 0.927,
+      "2": 0.987,
+      "3": 0.889,
+      "4": 0.988,
+      "5 most deprived": 1.007
+    },
+    "kruskal_region_p": 0.0003021861642641353,
+    "kruskal_imd_p": 0.473465541716542
+  },
+  "out_of_time": {
+    "poisson_deviance": 0.0005,
+    "d2": 0.3244,
+    "mae_per_100k": 99.4924,
+    "spearman": 0.7444,
+    "year_on_year_rate_spearman": 0.9153
+  }
+}

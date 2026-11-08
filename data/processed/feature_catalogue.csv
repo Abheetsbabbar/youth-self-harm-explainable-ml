@@ -1,0 +1,24 @@
+feature,indicator_id,indicator_name,sex,age,period_used,after_target_period,missing_share
+imd_score,94240,Deprivation score (IMD 2025),Persons,All ages,2025,True,0.0
+child_absolute_low_income_pct,93701,Children in absolute low income families (under 16s),Persons,<16 yrs,2023/24,False,0.0
+free_school_meals_pct,90922,Children eligible for free school meals,Persons,School age,2023/24,False,0.0
+children_in_care_rate,90803,Children in care,Persons,<18 yrs,2023/24,False,0.006535947712418301
+persistent_absence_secondary_pct,92564,Persistent absentees - Secondary school,Persons,Secondary school age,2023/24,False,0.006535947712418301
+persistent_absence_primary_pct,92563,Persistent absentees - Primary school,Persons,Primary school age,2023/24,False,0.006535947712418301
+neet_16_17_pct,93203,"16 to 17 year olds not in education, employment or training (NEET) or whose activity is not known",Persons,16-17 yrs,2023/24,False,0.013071895424836602
+youth_justice_first_entrants_rate,10401,First time entrants to the youth justice system,Persons,10-17 yrs,2023,False,0.026143790849673203
+semh_pupils_pct,91871,"School pupils with social, emotional and mental health needs",Persons,School age,2023/24,False,0.013071895424836602
+sen_pupils_pct,90898,Pupils with special educational needs (SEN),Persons,School age,2023/24,False,0.0
+under18_conception_rate,20401,Under 18s conception rate,Female,<18 yrs,2023,False,0.013071895424836602
+domestic_abuse_rate,92863,Domestic abuse related incidents and crimes,Persons,16+ yrs,2023/24,False,0.0
+homeless_families_rate,93739,Homelessness - households with dependent children owed a duty under the Homelessness Reduction Act,Not applicable,Not applicable,2023/24,False,0.0457516339869281
+violent_crime_rate,11202,"Violent crime - violence offences per 1,000 population",Persons,All ages,2023/24,False,0.0
+adult_loneliness_pct,94175,Loneliness: Percentage of adults who feel lonely often or always,Persons,16+ yrs,2023/24 - 24/25,False,0.0196078431372549
+smi_prevalence_pct,90581,Mental Health: QOF prevalence,Persons,All ages,2023/24,False,0.0
+adult_depression_prevalence_pct,848,Depression: QOF prevalence,Persons,18+ yrs,2022/23,False,0.0
+ethnic_minority_births_pct,92973,Deliveries to women from ethnic minority groups,Female,All ages,2023/24,False,0.026143790849673203
+attainment8_score,93378,Average Attainment 8 score,Persons,15-16 yrs,2023/24,False,0.0
+school_readiness_pct,90631,School readiness: percentage of children achieving a good level of development at the end of Reception,Persons,5 yrs,2023/24,False,0.0
+ahah_index,93074,Access to Healthy Assets & Hazards Index,Persons,All ages,2026,True,0.0
+lac_wellbeing_concern_pct,92315,Percentage of looked after children whose emotional wellbeing is a cause for concern,Persons,5-16 yrs,2023/24,False,0.0392156862745098
+housing_affordability_ratio,93111,Affordability of home ownership,Persons,All ages,2023,False,0.013071895424836602
