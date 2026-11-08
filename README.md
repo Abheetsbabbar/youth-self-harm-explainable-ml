@@ -1,6 +1,6 @@
 # Explaining Local Variation in Youth Self-Harm Hospital Admissions: An Honest ML Study
 
-[![CI](https://github.com/Abheetsbabbar/cyp-mental-health-self-harm-risk-ml/actions/workflows/ci.yml/badge.svg)](https://github.com/Abheetsbabbar/cyp-mental-health-self-harm-risk-ml/actions/workflows/ci.yml)
+[![CI](https://github.com/Abheetsbabbar/youth-self-harm-explainable-ml/actions/workflows/ci.yml/badge.svg)](https://github.com/Abheetsbabbar/youth-self-harm-explainable-ml/actions/workflows/ci.yml)
 ![Python](https://img.shields.io/badge/python-3.11-blue)
 ![Data](https://img.shields.io/badge/data-OHID%20Fingertips-005EB8)
 ![Licence](https://img.shields.io/badge/code-MIT-green)
@@ -17,8 +17,8 @@ Part 3 of a three-project portfolio on children and young people's mental health
 
 | # | Project | Question |
 |---|---|---|
-| 1 | [Access & inequalities](https://github.com/Abheetsbabbar/cyp-mental-health-access-inequalities) | Where, and for whom, is access to children's mental-health care unequal? |
-| 2 | [Demand forecasting & waiting-list simulation](https://github.com/Abheetsbabbar/cyp-mental-health-demand-forecasting) | How many referrals are coming, and what capacity would clear the waiting list? |
+| 1 | [Access & inequalities](https://github.com/Abheetsbabbar/children-mental-health-access-inequalities) | Where, and for whom, is access to children's mental-health care unequal? |
+| 2 | [Demand forecasting & waiting-list simulation](https://github.com/Abheetsbabbar/children-mental-health-demand-forecasting) | How many referrals are coming, and what capacity would clear the waiting list? |
 | **3** | **Explainable self-harm risk model (this repo)** | Which local social factors explain youth self-harm admissions, and which areas exceed expectation? |
 
 > ⚠️ **Area-level analysis only.** This model describes councils, not children.
@@ -57,14 +57,14 @@ Part 3 of a three-project portfolio on children and young people's mental health
 
 | Area | What was used | Where |
 |---|---|---|
-| **Data acquisition** | OHID **Fingertips REST API** (24 indicators, 153 councils); region lookup API; ONS ArcGIS boundaries | [`download.py`](src/cypmh_selfharm/download.py) |
-| **Feature engineering** | **Temporal alignment**: each predictor taken from the latest period on or before the target year, recorded in a feature catalogue; leakage control by excluding other hospital-admission outcomes; missingness threshold | [`build.py`](src/cypmh_selfharm/build.py) |
-| **Modelling** | Count-data framing: Poisson loss with population weights (≡ log-population offset); **ridge Poisson GLM**, **random forest**, **LightGBM (Poisson objective)**; England-average baseline | [`modelling.py`](src/cypmh_selfharm/modelling.py) |
-| **Validation** | **Nested cross-validation** (5×5 repeated outer, 3-fold inner grid search); **spatial leave-one-region-out CV**; **out-of-time validation**; metrics: Poisson deviance, D², weighted MAE, Spearman ρ | [`modelling.py`](src/cypmh_selfharm/modelling.py) |
-| **Explainability** | **SHAP** (TreeExplainer: importance, beeswarm, dependence); **quasi-Poisson GLM** incidence-rate ratios on a de-correlated subset chosen by **hierarchical correlation clustering** | [`analysis.py`](src/cypmh_selfharm/analysis.py) |
-| **Epidemiology** | **Observed/expected** ratios from out-of-fold predictions, **exact Poisson CIs**, over-dispersion-adjusted funnel plot; deviance decomposition (region vs context) | [`modelling.py`](src/cypmh_selfharm/modelling.py) |
+| **Data acquisition** | OHID **Fingertips REST API** (24 indicators, 153 councils); region lookup API; ONS ArcGIS boundaries | [`download.py`](src/selfharm_model/download.py) |
+| **Feature engineering** | **Temporal alignment**: each predictor taken from the latest period on or before the target year, recorded in a feature catalogue; leakage control by excluding other hospital-admission outcomes; missingness threshold | [`build.py`](src/selfharm_model/build.py) |
+| **Modelling** | Count-data framing: Poisson loss with population weights (≡ log-population offset); **ridge Poisson GLM**, **random forest**, **LightGBM (Poisson objective)**; England-average baseline | [`modelling.py`](src/selfharm_model/modelling.py) |
+| **Validation** | **Nested cross-validation** (5×5 repeated outer, 3-fold inner grid search); **spatial leave-one-region-out CV**; **out-of-time validation**; metrics: Poisson deviance, D², weighted MAE, Spearman ρ | [`modelling.py`](src/selfharm_model/modelling.py) |
+| **Explainability** | **SHAP** (TreeExplainer: importance, beeswarm, dependence); **quasi-Poisson GLM** incidence-rate ratios on a de-correlated subset chosen by **hierarchical correlation clustering** | [`analysis.py`](src/selfharm_model/analysis.py) |
+| **Epidemiology** | **Observed/expected** ratios from out-of-fold predictions, **exact Poisson CIs**, over-dispersion-adjusted funnel plot; deviance decomposition (region vs context) | [`modelling.py`](src/selfharm_model/modelling.py) |
 | **Responsible AI** | **Residual fairness audit** by region and deprivation (Kruskal–Wallis); **model card**; ecological-fallacy and use-restriction statements | [`docs/limitations_and_ethics.md`](docs/limitations_and_ethics.md) |
-| **Geospatial** | GeoPandas choropleths with sequential and **diverging** (centred on O/E = 1) scales | [`analysis.py`](src/cypmh_selfharm/analysis.py) |
+| **Geospatial** | GeoPandas choropleths with sequential and **diverging** (centred on O/E = 1) scales | [`analysis.py`](src/selfharm_model/analysis.py) |
 | **Quality assurance** | **pytest** (metric identities, planted-signal recovery, no-future-data alignment); **pandera** contracts; **ruff**; **GitHub Actions CI** | [`tests/`](tests/) |
 
 **Stack:** Python 3.11 · scikit-learn · LightGBM · SHAP · statsmodels · SciPy · pandas · GeoPandas · Matplotlib · pandera · pytest · ruff · GitHub Actions
@@ -74,11 +74,11 @@ Part 3 of a three-project portfolio on children and young people's mental health
 ## Repository structure
 
 ```
-cyp-mental-health-self-harm-risk-ml/
+youth-self-harm-explainable-ml/
 ├── README.md
 ├── Makefile                       ← make all = download → build → analysis → test
 ├── pyproject.toml
-├── src/cypmh_selfharm/
+├── src/selfharm_model/
 │   ├── config.py                  ← target, 23 predictors (with rationale), CV settings
 │   ├── download.py                ← Fingertips API, region lookup, ONS boundaries
 │   ├── build.py                   ← time-aligned modelling tables + feature catalogue
@@ -102,8 +102,8 @@ cyp-mental-health-self-harm-risk-ml/
 ## How to run it
 
 ```bash
-git clone https://github.com/Abheetsbabbar/cyp-mental-health-self-harm-risk-ml.git
-cd cyp-mental-health-self-harm-risk-ml
+git clone https://github.com/Abheetsbabbar/youth-self-harm-explainable-ml.git
+cd youth-self-harm-explainable-ml
 python -m venv .venv && source .venv/bin/activate
 make install
 ```

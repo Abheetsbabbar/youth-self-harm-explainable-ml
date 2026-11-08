@@ -1,6 +1,6 @@
 """Download OHID Fingertips indicators, the region lookup and council boundaries (idempotent).
 
-Run:  python -m cypmh_selfharm.download
+Run:  python -m selfharm_model.download
 """
 
 from __future__ import annotations

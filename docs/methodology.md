@@ -19,7 +19,7 @@ age band, crude and standardised rates are almost identical.
 
 The 23 predictors cover poverty, care and safeguarding, education, transitions,
 family stress, community, adult mental health, population mix, environment and
-housing. The full list and rationale are in [`config.py`](../src/cypmh_selfharm/config.py)
+housing. The full list and rationale are in [`config.py`](../src/selfharm_model/config.py)
 and the [data dictionary](data_dictionary.md).
 
 - **Temporal alignment:** each predictor uses the **latest period on or before the

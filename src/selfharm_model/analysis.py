@@ -1,6 +1,6 @@
 """End-to-end analysis: CV comparison, explainability, observed-vs-expected, audits, figures.
 
-Run:  python -m cypmh_selfharm.analysis
+Run:  python -m selfharm_model.analysis
 """
 
 from __future__ import annotations

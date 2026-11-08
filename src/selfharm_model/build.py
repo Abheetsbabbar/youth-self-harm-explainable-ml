@@ -1,6 +1,6 @@
 """Build the modelling table: one row per upper-tier local authority.
 
-Run:  python -m cypmh_selfharm.build
+Run:  python -m selfharm_model.build
 Outputs (committed):
     data/processed/model_table_<period>.csv   target + temporally aligned predictors
     data/processed/feature_catalogue.csv      which period each predictor came from, missingness

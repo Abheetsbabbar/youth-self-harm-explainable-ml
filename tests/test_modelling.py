@@ -4,8 +4,8 @@ import numpy as np
 import pandas as pd
 import pytest
 
-from cypmh_selfharm import modelling as md
-from cypmh_selfharm.build import aligned_period
+from selfharm_model import modelling as md
+from selfharm_model.build import aligned_period
 
 
 def test_d2_is_zero_for_mean_prediction_and_one_for_perfect():
