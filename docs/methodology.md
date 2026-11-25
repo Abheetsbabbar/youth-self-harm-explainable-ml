@@ -70,10 +70,10 @@ Trees are deliberately shallow and grids small, because n = 150.
 | Random 5×5 (D²) | 0% | 29% | **37%** | 34% |
 | Leave-one-region-out (D²) | 0% | **9%** | −11% | −14% |
 
-**Interpretation:** flexible models exploit regional structure that random CV
-leaks between folds. The regularised GLM is the most transferable. This is the
-expected pattern when spatial autocorrelation is present, and it's why spatial CV
-should be standard for area-level health models.
+**Interpretation:** the pattern is consistent with flexible models exploiting regional
+structure that random CV leaks between folds. The regularised GLM transfers best, but
+weakly. Tree-model D² varies widely across regions (SD about 0.55), and on mean absolute
+error they remain slightly better than the baseline (104–105 vs 107 per 100,000).
 
 ## 5. Explainability
 
@@ -90,7 +90,8 @@ should be standard for area-level health models.
   predictors and 150 councils, the signal is largely **shared** across predictors
   rather than attributable to any one of them.
 - **Deviance decomposition.** Quasi-Poisson GLMs with region only, context only,
-  and both explain 53%, 51% and 63% of in-sample deviance.
+  and both explain 53%, 51% and 63% of in-sample deviance. The context model uses the 16
+  de-correlated predictors, not all 23.
 
 **Reading the top SHAP features.** `ethnic_minority_births_pct` and `ahah_index`
 are both strongly linked to urban areas (Spearman ρ = 0.68 with each other; London
